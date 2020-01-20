@@ -1,6 +1,7 @@
 package com.nous.project.template.controller;
 
 import com.nous.project.template.domain.Product;
+import com.nous.project.template.exception.ProductNotPurchased;
 import com.nous.project.template.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public List<Product> getAll() {
-        return null;
+    	List<Product> result=productService.getProducts();
+    	if(result.isEmpty()) {
+    		throw new ProductNotPurchased("There are no purchased items");
+    	}
+        return result;
     }
 }

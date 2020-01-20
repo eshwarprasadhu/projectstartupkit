@@ -1,6 +1,5 @@
 package com.nous.project.template.domain;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,18 +7,11 @@ import java.util.Set;
 /**
  * Created by sahan on 4/9/2016.
  */
-@Entity
-@Table(name = "user")
 public class User implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
 
+    private Long id;
     private String name;
     private String email;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 
     public User(String email, String name) {

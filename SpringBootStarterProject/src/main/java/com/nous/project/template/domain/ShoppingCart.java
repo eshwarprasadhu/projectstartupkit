@@ -1,41 +1,20 @@
 package com.nous.project.template.domain;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by sahan on 4/8/2016.
  */
-@Entity
-@Table(name = "shopping_cart")
+
 public class ShoppingCart implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id")
     private Product product;
-
-    @Column(name = "stock")
-    @NotNull
     private Integer stock;
-
-    @Column(name = "amount")
     private Double amount;
-
-    @Column(name = "status")
     private String status;
-
-    @Column(name = "date")
     private Date date;
 
     public Long getId() {

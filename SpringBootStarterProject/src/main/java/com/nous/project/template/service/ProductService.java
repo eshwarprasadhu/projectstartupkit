@@ -1,6 +1,7 @@
 package com.nous.project.template.service;
 
 import com.nous.project.template.domain.Product;
+import com.nous.project.template.model.ShoppingCartDTO;
 
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,11 @@ public class ProductService {
         products.add(new Product(300.0d, 800, "Head and Shoulders Shampoo", "Shampoo"));
         products.add(new Product(550.0d, 800, "Imported Leather Wallets from AUS", "Leather Wallets"));
         products.add(new Product(85000.0d, 800, "Imported Canon camera from USA", "Camera"));
+    }
+    
+    public List<Product> getProducts(){
+           	return products;
+    	
     }
 
 }
