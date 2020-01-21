@@ -18,6 +18,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+
+
+/*
+ * ShoppingCartTest for addProductsTest and updateProductsTest test method 
+ *
+ *
+ *
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class ShoppingCartControllerTest {
 
@@ -25,64 +33,48 @@ public class ShoppingCartControllerTest {
 	ShoppingCartService shoppingCartService;
 
 
-	/*
-	 * Test data for updateProduct method of ShoppingCartService with valid data
-	 *
-	 *
-	 *
-	 */
-//	public ShoppingCartDTO getproductdetails() {
-//
-//		ShoppingCartDTO shoppingCart = new ShoppingCartDTO();
-//		shoppingCart.setProductId(2L);
-//		shoppingCart.setStatus("PURCHASED");
-//		shoppingCart.setStock(200);
-//		return shoppingCart;
-//
-//	}
+	
 
-//	public ShoppingCart getShoppingCartResponse() {
-//
-//		ShoppingCart shoppingCart = new ShoppingCart();
-//		shoppingCart.setAmount(20000d);
-//		shoppingCart.setDate(null);
-//		shoppingCart.setId(1346L);
-//		shoppingCart.setStatus("PURCHASED");
-//		shoppingCart.setStock(200);
-//
-//		User user = new User();
-//		user.setEmail("exampple123@gmail.com");
-//		user.setName("user");
-//		user.setId(10L);
-//		shoppingCart.setUser(user);
-//
-//		return shoppingCart;
-//	}
+	@Test
+	public void addProductsTest() {
+	
+		List<Product> addItemresult = shoppingCartService.addItem(addProductsTestData(), getProductId());
+		Assert.assertNotNull(addItemresult);
+	}
 
-	public List<Product> addProducts() {
+	
+	
+	@Test
+	public void updateProductsTest() {
+	
+		List<Product> addItemresult = shoppingCartService.getItem(getProductId());
+		Assert.assertNotNull(addItemresult);
+	}
+
+	
+	
+	private Long getProductId() {
+		
+		return 12L;
+	}
+
+	
+	
+	public List<Product> addProductsTestData() {
 
 		List<Product> products = new ArrayList<>();
 
 		Product product1 = new Product();
-		product1.setId(2l);
-		product1.setName("abc");
+		product1.setId(21l);
+		product1.setName("gadget1");
 
 		Product product2 = new Product();
-		product2.setId(3l);
-		product2.setName("ytr");
+		product2.setId(31l);
+		product2.setName("gadget2");
 
 		products.add(product1);
 		products.add(product2);
 
 		return products;
 	}
-
-	
-	@Test
-	public void testUpdateProduct() {
-	
-		List<Product> addItemresult = shoppingCartService.addItem(addProducts(), 12L);
-		Assert.assertNotNull(addItemresult);
-	}
-
 }

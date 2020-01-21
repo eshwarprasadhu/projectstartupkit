@@ -1,5 +1,10 @@
 package com.nous.project.template.generic;
 
-public class NoTestCaseClass {
 
+/**
+ * Test class used in SuiteTest
+ */
+public class NoTestCaseClass extends Object {
+    public void testSuccess() {
+    }
 }
