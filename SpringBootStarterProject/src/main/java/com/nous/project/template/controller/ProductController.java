@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created by sahan on 4/9/2016.
- */
 @RestController
 @RequestMapping("/products")
 public class ProductController {
