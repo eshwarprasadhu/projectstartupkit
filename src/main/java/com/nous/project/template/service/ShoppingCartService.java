@@ -29,54 +29,5 @@ public class ShoppingCartService {
  * 
  * 
  */
-	
-//	public boolean addItem( List<Product> products, Long id ) {
-//		return addProducts();
-//	}
-//	
-//	
-//	
-//	public List<Product> getItem(Long id){
-//		//return addProducts();
-//	}
-//	
-//	
-//	
-//	public Boolean addProducts() {
-//			boolean sucess=true;
-//		List<Product> products = new ArrayList<>();
-//
-//		Product product1 = new Product();
-//		product1.setId(21l);
-//		product1.setName("gadget1");
-//
-//		Product product2 = new Product();
-//		product2.setId(31l);
-//		product2.setName("gadget2");
-//
-//		products.add(product1);
-//		products.add(product2);
-//
-//		return sucess;
-//	}
-//	
-//
-//	public Boolean addProducts() {
-//			boolean sucess=true;
-//		List<Product> products = new ArrayList<>();
-//
-//		Product product1 = new Product();
-//		product1.setId(21l);
-//		product1.setName("gadget1");
-//
-//		Product product2 = new Product();
-//		product2.setId(31l);
-//		product2.setName("gadget2");
-//
-//		products.add(product1);
-//		products.add(product2);
-//
-//		return sucess;
-//	}
-  
+
 }

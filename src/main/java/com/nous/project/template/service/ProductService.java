@@ -38,20 +38,24 @@ public class ProductService {
         
     }
     
+    
+    // code to find all products
     public List<Product> findAll() {
 		return productDAO.findAll();
 	}
+    
+    public List<Product> getProduct() {
+		return productDAO.findAll();
+	}
 	
-    
-    public List<Product> getProduct(){
-    	return productDAO.findAll();
-    }
-    
+
+   //  code to find product by Id
     public Optional<Product> getProductById(Long id) {
     	return productDAO.findById(id);
     }
     
     
+    //  code to update product by Id
     public boolean updateProductById(Long id) {
     	
     	Optional<Product> product=  productDAO.findById(id);
@@ -62,7 +66,7 @@ public class ProductService {
     	return true;
     }
     
-    
+    //  code to save product
     public boolean Saveproduct(Product product) {
     	
     	productDAO.save(product);
@@ -70,7 +74,7 @@ public class ProductService {
     	return true;
     }
     
-    
+    //  code to delete product
     public boolean deleteProductById(Long id) {
     	
     	Optional<Product> product=  productDAO.findById(id);
@@ -84,7 +88,7 @@ public class ProductService {
 
 
 	public Optional<Product> findProduct(Long id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
     public String save(Product product) {
