@@ -1,11 +1,16 @@
 package com.nous.project.template.service;
 
-import com.nous.project.template.domain.Product;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.nous.project.template.dao.ProductDAO;
+import com.nous.project.template.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by sahan on 4/8/2016.
@@ -14,8 +19,12 @@ import java.util.List;
 public class ProductService {
 
     private static List<Product> products = new ArrayList<>();
+    
+    @Autowired
+    private ProductDAO productDAO;
 
     static {
+    	
         products.add(new Product(35.75d, 1000, "Pears baby soap for Kids", "Soap"));
         products.add(new Product(45.50d, 500, "Signal Tooth Brushes Size in (L, M, S)", "Tooth Brushe"));
         products.add(new Product(1500.0d, 100, "Casual Shirt imported from France", "Shirt"));
@@ -26,6 +35,70 @@ public class ProductService {
         products.add(new Product(300.0d, 800, "Head and Shoulders Shampoo", "Shampoo"));
         products.add(new Product(550.0d, 800, "Imported Leather Wallets from AUS", "Leather Wallets"));
         products.add(new Product(85000.0d, 800, "Imported Canon camera from USA", "Camera"));
+        
+    }
+    
+    public List<Product> findAll() {
+		return productDAO.findAll();
+	}
+	
+    
+    public List<Product> getProduct(){
+    	return productDAO.findAll();
+    }
+    
+    public Optional<Product> getProductById(Long id) {
+    	return productDAO.findById(id);
+    }
+    
+    
+    public boolean updateProductById(Long id) {
+    	
+    	Optional<Product> product=  productDAO.findById(id);
+    	
+    	Product products = null;
+		productDAO.save(products);
+		
+    	return true;
+    }
+    
+    
+    public boolean Saveproduct(Product product) {
+    	
+    	productDAO.save(product);
+    	
+    	return true;
+    }
+    
+    
+    public boolean deleteProductById(Long id) {
+    	
+    	Optional<Product> product=  productDAO.findById(id);
+    	
+    	Product products = null;
+    	productDAO.delete(products);
+    	
+    	return true;
+    	
     }
 
+
+	public Optional<Product> findProduct(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    public String save(Product product) {
+        // code to persist the Product object
+        return "String";
+    }
+ 
+    public void delete(Product product) {
+        // code to remove the Product object
+    }
+    
+    
+
+    
 }
+
+
