@@ -1,0 +1,11 @@
+com\nous\project\template\dao\ProductDAO.class
+com\nous\project\template\model\Product.class
+com\nous\project\template\model\User.class
+com\nous\project\template\service\ProductService.class
+com\nous\project\template\SpringBootStarterProject.class
+com\nous\project\template\controller\UserController.class
+com\nous\project\template\controller\ShoppingCartController.class
+com\nous\project\template\model\ShoppingCart.class
+com\nous\project\template\service\UserService.class
+com\nous\project\template\controller\ProductController.class
+com\nous\project\template\service\ShoppingCartService.class
