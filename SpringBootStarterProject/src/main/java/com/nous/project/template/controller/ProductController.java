@@ -1,5 +1,6 @@
 package com.nous.project.template.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
@@ -17,18 +18,40 @@ import ch.qos.logback.classic.Logger;
 @RequestMapping("/products")
 public class ProductController {
 
+	private static final Logger log = (Logger) LoggerFactory.getLogger(ShoppingCartController.class);
+	
 	@Autowired
 	private ProductService productService;
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
 	public List<Product> getAll() {
-		logerMethod();
+		try {
+			log.info("Adding all the objets to the list");
+			List<Product> list = new ArrayList<Product>();
+			list.add(productData());
+			log.info("Returning list of objects in shopping cart");
+			return list;
+		} catch (Exception e) {
+			log.error("Please check the products which you are adding to the cart list");
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 	
-	 private static final Logger log = (Logger) LoggerFactory.getLogger(ShoppingCartController.class);
+	
 
-	    public void logerMethod() {
-	       log.info("Hello world");
+	    public Product productData() {
+	       log.info("Adding products data to the  product object");
+	       Product product = new Product();
+	       
+	       product.setId(12345L);
+	       product.setName("Air condition");
+	       product.setQuantity(1);
+	       product.setUnitPrice(3500.00);
+	       product.setDescription("Which is used to cool the room");
+	       
+	       log.info("Returning product object");
+	       return product;
 	    }
 }
