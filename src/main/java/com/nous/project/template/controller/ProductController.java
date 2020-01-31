@@ -2,13 +2,15 @@ package com.nous.project.template.controller;
 
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.nous.project.template.dao.ProductDAO;
 import com.nous.project.template.model.Product;
 import com.nous.project.template.service.ProductService;
 
@@ -20,45 +22,54 @@ import com.nous.project.template.service.ProductService;
 
 public class ProductController {
 
+	@Autowired
+	ProductDAO productdao;
 	
 	
 	@Autowired
 	private ProductService productService;
 
-	@RequestMapping("/")
+	@GetMapping
 	public List<Product> getAll() {
-		return productService.findAll();
+		System.out.println("Hi");		
+		return productService.addProducts();
+	}
+	
+
+	@PostMapping(path = "/members", consumes = "application/json", produces = "application/json")
+	public void createProduct(@RequestBody Product product) {
+		productService.addProduct(product);
+	  productdao.save(product);
+	 
+	} 
+	
+	
+	@PutMapping(value = "/update/{id}")
+	public void update(@PathVariable("id") Long productId, @RequestBody Product product) {
+        // TODO: update logic 
+		//return "Country updated successfully";
+		
+		productService.updateProduct(productId,product);
 	}
 	
 	
 	@RequestMapping("/get/{id}")
 	public Product getProduct(@PathVariable("id") Long id) {
-		Product product = null;
-		product = productService.findProduct(id).get();
+		
+		Product product = productService.findProduct(id).get();
 
 		return product;
 	}
-
-	@GetMapping
-	public List<Product> getAllproducts() {
-			
-		return productService.getProduct();
-		
-	}
 	
-	public List<Product> getProductById(Long id) {
+	public List<Product> getProductById(Long id){
 		 Product prod = productService.getProductById(id).get();
 		 return (List<Product>) prod;
 		
 	}
 	
-	public boolean updateProductById(Long id) {
-
-
+	public boolean updateProductById(Long id){
 		boolean update=productService.updateProductById(id);
 		return update;
-		
-		
 	}
 	
 	public boolean Saveproduct(Product product) {
@@ -72,18 +83,13 @@ public class ProductController {
 		return delete;
 		
 	}
-	
-	
-	
-
-	
-//	@RequestMapping(value="post",method = RequestMethod.POST)
-//	@ResponseBody
-//	public List<Product> postAll() {
-//	
-//		return addProducts();
-//	  
-//	}
+		
+	public List<Product> postAll() {
+	ProductService productservice = null;
+		
+		return productservice.addProducts();
+	  
+	}
 	
 	
 	

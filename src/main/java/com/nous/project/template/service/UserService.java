@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.nous.project.template.model.Product;
 import com.nous.project.template.model.User;
 
 /**
@@ -21,9 +22,25 @@ public class UserService {
     static {
         users.add(new User("user1@gmail.com", "user1"));
         users.add(new User("user2@gmail.com", "user2"));
+        users.add(new User("user2@gmail.com", "user3"));
+        users.add(new User("user2@gmail.com", "user4"));
+        users.add(new User("user2@gmail.com", "user5"));
     }
 
+   User user1;
     
+    public List<User> displayUser(){
+    	
+    	return users;
+    }
+    
+    
+    public User addUser(User user)
+    {
+    	this.user1=user;
+    	
+    	return user1;
+    }
     public User save(User user) {
         // code to persist the User object
         return user;
@@ -32,4 +49,7 @@ public class UserService {
     public void delete(User user) {
         // code to remove the User object
     }
+     
+    
+    
 }

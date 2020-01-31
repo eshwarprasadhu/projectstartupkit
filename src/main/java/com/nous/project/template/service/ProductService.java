@@ -39,6 +39,25 @@ public class ProductService {
     }
     
     
+    public List<Product> addProducts(){
+    	
+       	return products;
+	}
+    
+    public void addProduct(Product product){
+    	
+    	products.add(product);
+    }
+    
+    
+    public void updateProduct(Long id,Product products) {
+    	
+    	Optional<Product> product=productDAO.findById(id);
+    	
+    	
+    	
+    }
+    
     // code to find all products
     public List<Product> findAll() {
 		return productDAO.findAll();
@@ -58,7 +77,7 @@ public class ProductService {
     //  code to update product by Id
     public boolean updateProductById(Long id) {
     	
-    	Optional<Product> product=  productDAO.findById(id);
+    	Optional<Product> product=productDAO.findById(id);
     	
     	Product products = null;
 		productDAO.save(products);
@@ -66,14 +85,20 @@ public class ProductService {
     	return true;
     }
     
+    
     //  code to save product
     public boolean Saveproduct(Product product) {
+    	
+    	
+    	
+    	
     	
     	productDAO.save(product);
     	
     	return true;
     }
     
+ 
     //  code to delete product
     public boolean deleteProductById(Long id) {
     	
@@ -91,6 +116,8 @@ public class ProductService {
 		
 		return null;
 	}
+	
+	
     public String save(Product product) {
         // code to persist the Product object
         return "String";
