@@ -12,22 +12,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nous.project.template.model.Product;
 import com.nous.project.template.model.User;
 import com.nous.project.template.service.ProductService;
+import com.nous.project.template.service.UserService;
 
+
+/*
+ * Class for product shopping cart CRUD operations  and to facilitate the flow of application related
+ */
 @RestController
-@RequestMapping("/shoppingCart/#")
+@RequestMapping("/shoppingCart")
 public class ShoppingCartController {
+	
+	@Autowired
+	UserService user;
 	
 	@Autowired
 	ProductService productservice;
 	
+	
+	// Get the products in the shopping cart 
 	@GetMapping
 	public List<Product> getMethod() {
 		
 		return productservice.addProducts();
 	  
 	}	
+	
+	//Get the User details
+	
 	public List<User> getUsers(){
-		return null;
+		return user.displayUser();
 		
 	}
 

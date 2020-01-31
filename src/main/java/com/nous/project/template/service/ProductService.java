@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Created by sahan on 4/8/2016.
+ * Implementation of Product operations
  */
 @Service
 public class ProductService {
@@ -121,10 +121,13 @@ public class ProductService {
     public String save(Product product) {
         // code to persist the Product object
         return "String";
+        
     }
  
     public void delete(Product product) {
+    	
         // code to remove the Product object
+    	
     }
     
     

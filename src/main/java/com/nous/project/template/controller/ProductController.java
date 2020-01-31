@@ -15,12 +15,17 @@ import com.nous.project.template.model.Product;
 import com.nous.project.template.service.ProductService;
 
 
-
+/*
+ * Class for product CRUD operations to facilitate the flow of application related to products
+ */
 
 @RestController
 @RequestMapping("/product")
 
+
+
 public class ProductController {
+	
 
 	@Autowired
 	ProductDAO productdao;
@@ -29,13 +34,15 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+	
+	//Code to get all the products details
 	@GetMapping
-	public List<Product> getAll() {
-		System.out.println("Hi");		
+	public List<Product> getAll() {	
 		return productService.addProducts();
 	}
 	
 
+	//Code to get add new product
 	@PostMapping(path = "/members", consumes = "application/json", produces = "application/json")
 	public void createProduct(@RequestBody Product product) {
 		productService.addProduct(product);
@@ -44,6 +51,7 @@ public class ProductController {
 	} 
 	
 	
+	//Code to update product through productId
 	@PutMapping(value = "/update/{id}")
 	public void update(@PathVariable("id") Long productId, @RequestBody Product product) {
         // TODO: update logic 
@@ -53,6 +61,7 @@ public class ProductController {
 	}
 	
 	
+	//Code to get product through productId
 	@RequestMapping("/get/{id}")
 	public Product getProduct(@PathVariable("id") Long id) {
 		
@@ -61,35 +70,34 @@ public class ProductController {
 		return product;
 	}
 	
-	public List<Product> getProductById(Long id){
-		 Product prod = productService.getProductById(id).get();
-		 return (List<Product>) prod;
-		
-	}
+//	//
+//	public List<Product> getProductById(Long id){
+//		 Product prod = productService.getProductById(id).get();
+//		 return (List<Product>) prod;
+//		
+//	}
+//	
+//	public boolean updateProductById(Long id){
+//		boolean update=productService.updateProductById(id);
+//		return update;
+//	}
+//	
 	
-	public boolean updateProductById(Long id){
-		boolean update=productService.updateProductById(id);
-		return update;
-	}
-	
+	//code to save product
 	public boolean Saveproduct(Product product) {
 		boolean save=productService.Saveproduct(product);
 		return save;
 		
 	}
 	
+	
+	//code to delete products through id
 	public boolean deleteProductById(Long id) {
 		boolean delete=productService.deleteProductById(id);
 		return delete;
 		
 	}
 		
-	public List<Product> postAll() {
-	ProductService productservice = null;
-		
-		return productservice.addProducts();
-	  
-	}
 	
 	
 	

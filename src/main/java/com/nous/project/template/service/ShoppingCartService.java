@@ -5,8 +5,13 @@ import java.util.List;
 
 import com.nous.project.template.model.Product;
 
+
+/**
+ * Implementation of ShoppingCart operations
+ */
 public class ShoppingCartService {
 	
+	//Hardcoded Product values
     private static List<Product> products = new ArrayList<>();
 	
 	   static {
@@ -27,6 +32,8 @@ public class ShoppingCartService {
  * 
  * 
  */  
+	   
+	   //code to get product details
 	   public List<Product> getProducts(){
 	       	return products;
 		}

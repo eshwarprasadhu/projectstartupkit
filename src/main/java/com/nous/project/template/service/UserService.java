@@ -11,14 +11,14 @@ import com.nous.project.template.model.Product;
 import com.nous.project.template.model.User;
 
 /**
- * Created by sahan on 4/9/2016.
+ * Class that implements the User operations
  */
 @Service
 @Transactional
 public class UserService {
 
     private static List<User> users = new ArrayList<>();
-
+    //hard coded user values
     static {
         users.add(new User("user1@gmail.com", "user1"));
         users.add(new User("user2@gmail.com", "user2"));
@@ -29,6 +29,8 @@ public class UserService {
 
    User user1;
     
+   
+   //code to disply the users
     public List<User> displayUser(){
     	
     	return users;
