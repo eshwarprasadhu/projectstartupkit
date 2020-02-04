@@ -46,8 +46,8 @@ public class ProductService {
 	 */
 	@Cacheable("product")
 	public Optional<Product> findProduct(Long id) throws InterruptedException{
-		Thread.sleep(4000);
-		return productRepository.findAll().stream().filter(p -> p.getId().equals(id)).findFirst();		
+			Thread.sleep(4000);
+			return productRepository.findAll().stream().filter(p -> p.getId().equals(id)).findFirst();
 	}
 
 }
