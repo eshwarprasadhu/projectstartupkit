@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nous.project.template.domain.Product;
+import com.nous.project.template.exception.ProductNotPurchased;
 import com.nous.project.template.service.ProductService;
 
 @RestController
@@ -19,7 +21,13 @@ public class ProductController {
 
 	@RequestMapping("/")
 	public List<Product> getAll() {
-		return productService.findAll();
+	
+		
+		List<Product> result=productService.findAll();
+    	if(result==null || result.isEmpty() ) {
+    		throw new ProductNotPurchased("There are no purchased items");
+    	}
+        return result;
 	}
 
 	@RequestMapping("/get/{id}")
@@ -33,4 +41,6 @@ public class ProductController {
 
 		return product;
 	}
+	
+	
 }
