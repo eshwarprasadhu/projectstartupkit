@@ -1,4 +1,4 @@
-package com.nous.project.template.domain;
+package com.nous.project.template.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -12,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+/*
+ * 	Product model class
+ */
 
 @Entity
 @Table(name = "product")
@@ -87,4 +91,6 @@ public class Product implements Serializable {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
+	 
 }

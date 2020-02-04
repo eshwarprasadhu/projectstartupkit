@@ -1,4 +1,4 @@
-package com.nous.project.template.domain;
+package com.nous.project.template.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,6 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+/*
+ * 	ShoppingCart model class
+ */
 
 @Entity
 @Table(name = "shopping_cart")
