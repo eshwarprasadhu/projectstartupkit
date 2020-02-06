@@ -1,4 +1,4 @@
-package com.nous.project.template.controller;
+package com.nous.project.template.test.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

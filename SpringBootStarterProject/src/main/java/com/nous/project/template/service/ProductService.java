@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.nous.project.template.domain.Product;
+import com.nous.project.template.model.Product;
 import com.nous.project.template.repository.ProductRepository;
 
 @Service
@@ -49,5 +49,95 @@ public class ProductService {
 			Thread.sleep(4000);
 			return productRepository.findAll().stream().filter(p -> p.getId().equals(id)).findFirst();
 	}
+	 @Autowired
+	    private ProductRepository productDAO;
+	
+	 public List<Product> addProducts(){
+	    	
+	       	return products;
+		}
+	    
+	    
+	    
+	    public void addProduct(Product product){
+	    	
+	    	products.add(product);
+	    }
+	    
+	    
+	    public void updateProduct(Long id,Product products) {
+	    	
+	    	Optional<Product> product=productDAO.findById(id);
+	    	
+	    }
+	    
+	    
+	    
+	    // code to find all products
+	    public List<Product> findAllProduct() {
+			return productDAO.findAll();
+		}
+	    
+	    
+	    
+	    public List<Product> getProduct() {
+			return productDAO.findAll();
+		}
+		
 
+	   //  code to find product by Id
+	    public Optional<Product> getProductById(Long id) {
+	    	
+	    	return productDAO.findById(id);
+	    
+	    }
+	    
+	    
+	    //  code to update product by Id
+	    public boolean updateProductById(Long id) {
+	    	
+	    	Optional<Product> product=productDAO.findById(id);
+	    	Product products = null;
+	    	
+			productDAO.save(products);
+			
+	    	return true;
+	    }
+	    
+	    
+	    //  code to save product
+	    public boolean Saveproduct(Product product) {    	
+	    	
+	    	productDAO.save(product);
+	    	
+	    	return true;
+	    }
+	    
+	 
+	    //  code to delete product
+	    public boolean deleteProductById(Long id) {
+	    	
+	    	Optional<Product> product=  productDAO.findById(id);
+	    	
+	    	Product products = null;
+	    	productDAO.delete(products);
+	    	
+	    	return true;
+	    	
+	    }
+
+		
+	    public Product save(Product product) {
+	        // code to persist the Product object
+	    	
+	    	
+	        return product;
+	        
+	    }
+	 
+	    public Product delete(Product product) {
+	    	
+	        return product;
+	    	
+	    }
 }
