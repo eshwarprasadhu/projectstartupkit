@@ -3,7 +3,7 @@ package com.nous.project.template.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nous.project.template.model.Product;
+import com.nous.project.template.domain.Product;
 
 
 /**

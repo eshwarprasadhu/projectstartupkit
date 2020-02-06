@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.nous.project.template.model.Product;
-import com.nous.project.template.model.User;
+import com.nous.project.template.domain.Product;
+import com.nous.project.template.domain.User;
 
 /**
  * Class that implements the User operations

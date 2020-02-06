@@ -3,10 +3,12 @@ package com.nous.project.template.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.nous.project.template.dao.ProductDAO;
-import com.nous.project.template.model.Product;
+import com.nous.project.template.domain.Product;
+import com.nous.project.template.repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,9 @@ import java.util.Optional;
 public class ProductService {
 
     private static List<Product> products = new ArrayList<>();
+    
+    @Autowired
+	private ProductRepository productRepository;
     
     @Autowired
     private ProductDAO productDAO;
@@ -38,6 +43,24 @@ public class ProductService {
         
     }
     
+    public List<Product> findAll() {
+		return productRepository.findAll();
+	}
+    
+	/**
+	 * @param id
+	 * @return Product
+	 * @throws InterruptedException
+	 * 
+	 * The findProduct() call will first check the cache product before actually invoking the method and then caching the result
+	 * 
+	 */
+	@Cacheable("product")
+	public Optional<Product> findProduct(Long id) throws InterruptedException{
+			Thread.sleep(4000);
+			return productRepository.findAll().stream().filter(p -> p.getId().equals(id)).findFirst();
+	}
+
     
     public List<Product> addProducts(){
     	
@@ -61,7 +84,7 @@ public class ProductService {
     
     
     // code to find all products
-    public List<Product> findAll() {
+    public List<Product> findAllProduct() {
 		return productDAO.findAll();
 	}
     

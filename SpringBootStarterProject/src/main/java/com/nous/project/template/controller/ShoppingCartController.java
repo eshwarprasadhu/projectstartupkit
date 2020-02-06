@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nous.project.template.model.Product;
-import com.nous.project.template.model.User;
+import com.nous.project.template.domain.Product;
+import com.nous.project.template.domain.User;
 import com.nous.project.template.service.ProductService;
 import com.nous.project.template.service.UserService;
 

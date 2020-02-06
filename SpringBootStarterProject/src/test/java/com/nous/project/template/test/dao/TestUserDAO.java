@@ -5,8 +5,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.nous.project.template.model.Product;
-import com.nous.project.template.model.User;
+import com.nous.project.template.domain.Product;
+import com.nous.project.template.domain.User;
 import com.nous.project.template.service.ProductService;
 import com.nous.project.template.service.UserService;
 
@@ -33,6 +33,7 @@ public class TestUserDAO {
         userService.delete(user);
  
         assertNotNull(user);
+        
     }
  
    
