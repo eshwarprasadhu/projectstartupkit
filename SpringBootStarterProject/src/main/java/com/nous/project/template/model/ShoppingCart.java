@@ -1,4 +1,4 @@
-package com.nous.project.template.domain;
+package com.nous.project.template.model;
 
 import java.io.Serializable;
 import java.util.Date;
